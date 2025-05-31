@@ -7,33 +7,17 @@ public class Producto {
     private double cantidad;
     private double precioUnitario;
     private double descuento;
-    private int iva;
-    private String unidadMedida;
+    private double iva;
 
     // Constructor
-    public Producto(String codigoPrincipal, String descripcion,
-                    double cantidad, double precioUnitario, int iva,
-                    String unidadMedida) {
-        this(codigoPrincipal, null, descripcion, cantidad, precioUnitario, 0, iva, unidadMedida);
-    }
-
-    public Producto(String codigoPrincipal, String codigoAuxiliar,
-                    String descripcion, double cantidad,
-                    double precioUnitario, double descuento,
-                    int iva, String unidadMedida) {
+    public Producto(String codigoPrincipal, String descripcion, double cantidad,
+                    double precioUnitario, double descuento, double iva) {
         this.codigoPrincipal = codigoPrincipal;
-        this.codigoAuxiliar = codigoAuxiliar;
         this.descripcion = descripcion;
         this.cantidad = cantidad;
         this.precioUnitario = precioUnitario;
         this.descuento = descuento;
         this.iva = iva;
-        this.unidadMedida = unidadMedida;
-    }
-
-    // Método para calcular el total por producto
-    public double getTotal() {
-        return (precioUnitario * cantidad) - descuento;
     }
 
     // Getters y Setters
@@ -43,6 +27,10 @@ public class Producto {
 
     public String getCodigoAuxiliar() {
         return codigoAuxiliar;
+    }
+
+    public void setCodigoAuxiliar(String codigoAuxiliar) {
+        this.codigoAuxiliar = codigoAuxiliar;
     }
 
     public String getDescripcion() {
@@ -61,23 +49,11 @@ public class Producto {
         return descuento;
     }
 
-    public int getIva() {
+    public double getIva() {
         return iva;
     }
 
-    public String getUnidadMedida() {
-        return unidadMedida;
-    }
-
-    public void setCantidad(double cantidad) {
-        this.cantidad = cantidad;
-    }
-
-    public void setPrecioUnitario(double precioUnitario) {
-        this.precioUnitario = precioUnitario;
-    }
-
-    public void setDescuento(double descuento) {
-        this.descuento = descuento;
+    public double getPrecioTotal() {
+        return (precioUnitario * cantidad) - descuento;
     }
 }
